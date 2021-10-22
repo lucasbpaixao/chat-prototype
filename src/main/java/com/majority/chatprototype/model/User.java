@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.majority.chatprototype.model.form.UserForm;
+
 @Entity
 public class User {
     @Id
@@ -56,5 +58,13 @@ public class User {
 
     public void setCreationDate(LocalDateTime creationDate) {
         this.creationDate = creationDate;
+    }
+
+    public void convertUserFormToUser(UserForm userForm){
+        this.name = userForm.getName();
+        this.username = userForm.getUsername();
+        this.password = userForm.getPassword();
+        this.creationDate = LocalDateTime.now();
+        
     }
 }
